@@ -26,13 +26,14 @@
 // }
 
 const inputRef = document.querySelector('#validation-input');
-const validLength = inputRef.dataset.length;
+const validLength = parseInt(inputRef.dataset.length);
 console.log(validLength);
 
 inputRef.addEventListener('blur', () => {
-	if (inputRef.value.length <= validLength) {
+	if (inputRef.value.length === validLength) {
 		inputRef.setAttribute('class', 'valid');
-		return inputRef;
+	} else {
+		inputRef.removeAttribute('class', 'valid')
+		inputRef.setAttribute('class', 'invalid')
 	}
-	inputRef.setAttribute('class', 'invalid')
 })

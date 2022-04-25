@@ -31,9 +31,19 @@ const ingredients = [
 
 const listRef = document.querySelector('#ingredients');
 
-ingredients.forEach(ingredient => {
-  const item = document.createElement('li');
-  item.textContent = ingredient;
-  item.setAttribute('class', 'item');
-  listRef.appendChild(item);
+// ingredients.forEach(ingredient => {
+//   const item = document.createElement('li');
+//   item.textContent = ingredient;
+//   item.setAttribute('class', 'item');
+//   listRef.appendChild(item);
+  // });
+
+
+  const addlistEls = ingredients.map(ingredient => {
+    const item = document.createElement('li');
+    item.textContent = ingredient;
+    item.setAttribute('class', 'item');
+    return item;
   });
+
+  listRef.append(...addlistEls);
